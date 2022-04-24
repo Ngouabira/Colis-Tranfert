@@ -2,10 +2,10 @@
 
 namespace controller;
 
-use model\Colis;
-use service\ColisService;
+use model\destination;
+use service\DestinationService;
 
-class ColisController
+class DestinationController
 {
     public static function controllerManager()
     {
@@ -38,7 +38,7 @@ class ColisController
     public static function all()
     {
 
-        echo json_encode(ColisService::all());
+        echo json_encode(DestinationService::all());
     }
 
     public static function add()
@@ -47,11 +47,11 @@ class ColisController
 
         extract($_POST);
 
-        $colis = new Colis(null, $libelle, $poids, $description, $expediteurId);
+        $destination = new Destination(null, $libelle, $poids, $description, $expediteurId);
 
-        if ($colis->isNotEmpty()) {
+        if ($destination->isNotEmpty()) {
 
-            ColisService::add($colis);
+            DestinationService::add($destination);
         } else {
 
             echo "Veuillez remplir tous les champs";
@@ -64,9 +64,9 @@ class ColisController
         extract($_GET);
         extract($_POST);
 
-        $colis = new colis($id, $libelle, $poids, $description, $expediteurId);
-        ColisService::update($colis);
-        if ($colis->isNotEmpty()) {
+        $destination = new Destination($id, $libelle, $poids, $description, $expediteurId);
+        DestinationService::update($destination);
+        if ($destination->isNotEmpty()) {
         } else {
 
             echo "Veuillez remplir tous les champs";
@@ -78,15 +78,15 @@ class ColisController
     {
 
         extract($_GET);
-        ColisService::delete($id);
+        DestinationService::delete($id);
     }
 
     public static function one()
     {
 
         extract($_GET);
-        echo json_encode(ColisService::one($id));
+        echo json_encode(DestinationService::one($id));
     }
 }
 
-ColisController::controllerManager();
+DestinationController::controllerManager();

@@ -10,6 +10,7 @@ class Colis
     private $poids;
     private $libelle;
     private $description;
+    private $expediteurId;
 
 
     /**
@@ -19,19 +20,20 @@ class Colis
      * @param    $libelle   
      * @param    $description   
      */
-    public function __construct($id, $poids, $libelle, $description)
+    public function __construct($id, $poids, $libelle, $description, $expediteurId)
     {
         $this->id = $id;
         $this->poids = $poids;
         $this->libelle = $libelle;
         $this->description = $description;
+        $this->expediteurId = $expediteurId;
     }
 
     public  function isNotEmpty()
     {
 
         if (
-            !empty($this->poids) and !empty($this->libelle) and !empty($this->description)
+            !empty($this->poids) and !empty($this->expediteurId) and !empty($this->libelle) and !empty($this->description)
         ) {
 
             return true;
@@ -119,6 +121,26 @@ class Colis
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of expediteurId
+     */
+    public function getExpediteurId()
+    {
+        return $this->expediteurId;
+    }
+
+    /**
+     * Set the value of expediteurId
+     *
+     * @return  self
+     */
+    public function setExpediteurId($expediteurId)
+    {
+        $this->expediteurId = $expediteurId;
 
         return $this;
     }

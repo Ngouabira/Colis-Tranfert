@@ -1,40 +1,40 @@
-<?php 
+<?php
+
 namespace model;
 
-class User {
+class User
+{
 
-	private $id;
-	private $email;
+    private $id;
+    private $email;
     private $password;
     private $image;
-	private $token;
+    private $token;
 
 
-public  function isNotEmpty(){
+    public  function isNotEmpty()
+    {
 
-        if (!empty($this->email) AND !empty($this->password)) {
-            
+        if (!empty($this->email) and !empty($this->password)) {
+
             return true;
-
         } else {
 
             return false;
         }
-        
     }
 
-public  function emailIsValid(){
+    public  function emailIsValid()
+    {
 
-    if (filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+        if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
 
-        return true;
+            return true;
+        } else {
+
+            return false;
+        }
     }
-
-    else {
-
-        return false;
-    }
-}
 
 
     /**
@@ -50,7 +50,7 @@ public  function emailIsValid(){
         $this->password = $password;
     }
 
-	
+
 
     /**
      * @return mixed
@@ -132,7 +132,7 @@ public  function emailIsValid(){
         return $this;
     }
 
-    
+
 
     /**
      * @return mixed
