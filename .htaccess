@@ -1,0 +1,35 @@
+RewriteEngine On
+
+RewriteRule ^home$ index.php
+RewriteRule ^accueil$ index.php
+
+RewriteRule ^login$ ./view/login.php
+RewriteRule ^register$ ./view/register.php
+RewriteRule ^forgotpassword$ ./view/forgotPassword.php
+RewriteRule ^resetpassword$ ./view/resetPassword.php
+
+RewriteRule ^user$ ./view/user.php
+RewriteRule ^user/([a-zA-Z]+)$ ./controller/userController.php?action=$1
+RewriteRule ^user/([a-zA-Z]+)/([0-9]+)$ ./controller/userController.php?action=$1&id=$2
+
+RewriteRule ^ville$ ./view/ville.php
+RewriteRule ^ville/([a-zA-Z]+)$ ./controller/villeController.php?action=$1
+RewriteRule ^ville/([a-zA-Z]+)/([0-9]+)$ ./controller/villeController.php?action=$1&id=$2
+
+RewriteRule ^colis$ ./view/colis.php
+RewriteRule ^colis/([a-zA-Z]+)$ ./controller/colisController.php?action=$1
+RewriteRule ^colis/([a-zA-Z]+)/([0-9]+)$ ./controller/colisController.php?action=$1&id=$2
+
+RewriteRule ^expediteur$ ./view/expediteur.php
+RewriteRule ^expediteur/([a-zA-Z]+)$ ./controller/expediteurController.php?action=$1
+RewriteRule ^expediteur/([a-zA-Z]+)/([0-9]+)$ ./controller/expediteurController.php?action=$1&id=$2
+
+RewriteRule ^destinataire$ ./view/destinataire.php
+RewriteRule ^destinataire/([a-zA-Z]+)$ ./controller/destinataireController.php?action=$1
+RewriteRule ^destinataire/([a-zA-Z]+)/([0-9]+)$ ./controller/destinataireController.php?action=$1&id=$2
+
+RewriteRule ^transfert$ ./view/transfert.php
+RewriteRule ^transfert/([a-zA-Z]+)$ ./controller/transfertController.php?action=$1
+RewriteRule ^transfert/([a-zA-Z]+)/([0-9]+)$ ./controller/transfertController.php?action=$1&id=$2
+
+
